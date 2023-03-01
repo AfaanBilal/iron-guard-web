@@ -27,7 +27,7 @@ const items = [
     { name: "Monitor", description: "A monitor is a window into the workings of electricity.", quantity: 42 },
 ];
 
-const ListItems: Component = () => {
+const ItemList: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
             <div class="text-4xl p-4 mb-4 flex items-center gap-4">
@@ -62,4 +62,4 @@ const ListItems: Component = () => {
     );
 };
 
-export default ListItems;
+export default ItemList;

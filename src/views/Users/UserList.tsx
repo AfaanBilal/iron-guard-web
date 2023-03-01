@@ -21,7 +21,7 @@ const users = [
     { role: "user", firstname: "Test", lastname: "User", email: "test@example.com" },
 ];
 
-const ListUsers: Component = () => {
+const UserList: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
             <div class="text-4xl p-4 mb-4 flex items-center gap-4">
@@ -58,4 +58,4 @@ const ListUsers: Component = () => {
     );
 };
 
-export default ListUsers;
+export default UserList;
