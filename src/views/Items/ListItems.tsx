@@ -7,6 +7,8 @@
  */
 
 import { type Component, For } from "solid-js";
+import { A } from "@solidjs/router";
+import Button from "../../components/Button";
 
 const items = [
     { name: "Monitor", description: "A monitor is a window into the workings of electricity.", quantity: 42 },
@@ -28,7 +30,10 @@ const items = [
 const ListItems: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
-            <h1 class="text-5xl p-4 mb-4">Items</h1>
+            <div class="text-4xl p-4 mb-4 flex items-center gap-4">
+                Items
+                <A href="/items/add"><Button label="Add" onClick={() => { }} /></A>
+            </div>
             <div class="overflow-x-auto w-full">
                 <table class="w-full whitespace-nowrap rounded-lg divide-y divide-gray-300 overflow-hidden">
                     <thead class="bg-gray-900">

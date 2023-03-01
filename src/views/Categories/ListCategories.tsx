@@ -30,7 +30,7 @@ const categories = [
 const ListCategories: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
-            <div class="text-5xl p-4 mb-4 flex items-center gap-4">
+            <div class="text-4xl p-4 mb-4 flex items-center gap-4">
                 Categories
                 <A href="/categories/add"><Button label="Add" onClick={() => { }} /></A>
             </div>
