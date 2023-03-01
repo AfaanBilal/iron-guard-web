@@ -107,6 +107,55 @@ const Dashboard: Component = () => {
                     </table>
                 </div>
             </div>
+            <Show when={0 === 0}>
+                <div class="flex mt-4">
+                    <div class="overflow-x-auto px-4 flex-1">
+                        <h1 class="text-3xl p-4">Latest Users</h1>
+                        <table class="w-full whitespace-nowrap rounded-lg divide-y divide-gray-300 overflow-hidden">
+                            <thead class="bg-gray-900">
+                                <tr class="text-white text-left">
+                                    <th class="font-semibold text-sm uppercase px-6 py-4">Firstname</th>
+                                    <th class="font-semibold text-sm uppercase px-6 py-4">Lastname</th>
+                                    <th class="font-semibold text-sm uppercase px-6 py-4">Email</th>
+                                    <th class="font-semibold text-sm uppercase px-6 py-4">Role</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-600 bg-slate-800">
+                                <tr>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Keyboard</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Mouse</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Mouse</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                </tr>
+                                <tr>
+                                    <td class="px-6 py-4">Mouse</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                    <td class="px-6 py-4">Electronics</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </Show>
         </div>
     );
 };
