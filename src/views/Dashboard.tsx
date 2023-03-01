@@ -11,10 +11,15 @@ import type { Component } from "solid-js";
 const Dashboard: Component = () => {
     return (
         <div class="flex-grow flex flex-col">
-            <div class="flex gap-4 p-4 border-b border-slate-500">
+            <div class="flex flex-wrap gap-4 p-4 border-b border-slate-500">
                 <div class="flex-grow h-48 pb-4 grid grid-cols-2 items-end border bg-slate-700 border-slate-600 rounded-lg">
-                    <div class="ml-8 text-9xl">Iron Guard</div>
-                    <div class="mr-4 text-4xl text-gray-500 uppercase text-right">inventory management system</div>
+                    <div class="ml-8">
+                        <img class="w-32 h-32" src={"/src/assets/icon.png"} alt="icon" />
+                    </div>
+                    <div class="mr-8 text-right">
+                        <div class="mb-2 text-7xl text-gray-400 font-bold">Iron Guard</div>
+                        <div class="text-4xl text-gray-500 uppercase">inventory management system</div>
+                    </div>
                 </div>
                 <div class="w-64 h-48 grid items-center text-center border bg-slate-700 border-slate-600 rounded-lg">
                     <div class="text-6xl">1234 <br /><span class="text-lg uppercase">items</span></div>
