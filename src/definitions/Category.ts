@@ -14,6 +14,7 @@ interface Category {
     name: string;
     description: string;
     parent_uuid?: string;
+    item_count?: number;
     user?: User,
     items: Item[],
     children: Category[],

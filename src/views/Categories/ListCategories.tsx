@@ -11,20 +11,20 @@ import { A } from "@solidjs/router";
 import Button from "../../components/Button";
 
 const categories = [
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
-    { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
+    { name: "Monitor", description: "A monitor is a window into the workings of electricity." },
 ];
 
 const ListCategories: Component = () => {
@@ -40,7 +40,6 @@ const ListCategories: Component = () => {
                         <tr class="text-white text-left">
                             <th class="font-semibold text-sm uppercase px-6 py-4">Name</th>
                             <th class="font-semibold text-sm uppercase px-6 py-4">Description</th>
-                            <th class="font-semibold text-sm uppercase px-6 py-4">Item Count</th>
                             <th class="font-semibold text-sm uppercase px-6 py-4">Actions</th>
                         </tr>
                     </thead>
@@ -50,7 +49,6 @@ const ListCategories: Component = () => {
                                 <tr>
                                     <td class="px-6 py-4">{c.name}</td>
                                     <td class="px-6 py-4">{c.description}</td>
-                                    <td class="px-6 py-4">{c.itemCount}</td>
                                     <td class="px-6 py-4">View / Edit / Delete</td>
                                 </tr>
                             }

@@ -9,11 +9,11 @@
 import { Component, For } from "solid-js";
 
 const categories = [
-    { uuid: "uuid-A", name: "Category A", description: "This is a category description", itemCount: 23 },
-    { uuid: "uuid-B", name: "Category B", description: "This is a category description", itemCount: 23 },
-    { uuid: "uuid-C", name: "Category C", description: "This is a category description", itemCount: 23 },
-    { uuid: "uuid-D", name: "Category D", description: "This is a category description", itemCount: 23 },
-    { uuid: "uuid-E", name: "Category E", description: "This is a category description", itemCount: 23 },
+    { uuid: "uuid-A", name: "Category A", description: "This is a category description" },
+    { uuid: "uuid-B", name: "Category B", description: "This is a category description" },
+    { uuid: "uuid-C", name: "Category C", description: "This is a category description" },
+    { uuid: "uuid-D", name: "Category D", description: "This is a category description" },
+    { uuid: "uuid-E", name: "Category E", description: "This is a category description" },
 ];
 
 const items = [
@@ -40,9 +40,6 @@ const Inventory: Component = () => {
                                     </div>
                                     <div class="text-slate-400 flex-grow">
                                         {c.description}
-                                    </div>
-                                    <div class="p-2 bg-slate-700 rounded">
-                                        {c.itemCount}
                                     </div>
                                 </div>
                             }
