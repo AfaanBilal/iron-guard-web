@@ -25,3 +25,5 @@ export const getInventoryData = async () => (await fetch(API_BASE + "/inventory"
 export const getCategoryList = async () => (await fetch(API_BASE + "/categories", { headers: headers() })).json();
 export const getItemList = async () => (await fetch(API_BASE + "/items", { headers: headers() })).json();
 export const getUserList = async () => (await fetch(API_BASE + "/users", { headers: headers() })).json();
+
+export const addCategory = async (name: string, description: string, parent_uuid: string) => (await fetch(API_BASE + "/categories", { method: "POST", headers: headers(), body: JSON.stringify({ name, description, parent_uuid }) })).json();

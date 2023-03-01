@@ -15,12 +15,12 @@ import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
 import ResultList from "../../definitions/types/ResultList";
 
-const CategoryList: Component = () => {
-    const [data] = createResource<ResultList<Category>>(getCategoryList);
+export const [categoryList] = createResource<ResultList<Category>>(getCategoryList);
 
+const CategoryList: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
-            <Show when={!data.loading} fallback={<Loading />}>
+            <Show when={!categoryList.loading} fallback={<Loading />}>
                 <div class="text-4xl p-4 mb-4 flex items-center gap-4">
                     Categories
                     <A href="/categories/add"><Button label="Add" onClick={() => { }} /></A>
@@ -36,7 +36,7 @@ const CategoryList: Component = () => {
                         </thead>
                         <tbody class="divide-y divide-gray-600 bg-slate-800">
                             <For
-                                each={data()?.results}
+                                each={categoryList()?.results}
                                 fallback={<NoDataAvailable col={3} />}>
                                 {c =>
                                     <tr>
