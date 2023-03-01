@@ -26,8 +26,8 @@ const Dashboard: Component = () => {
                     <div class="text-6xl">10 <br /><span class="text-lg uppercase">users</span></div>
                 </div>
             </div>
-            <div class="flex">
-                <div class="overflow-x-auto w-full px-2">
+            <div class="flex flex-wrap">
+                <div class="overflow-x-auto px-2">
                     <h1 class="text-3xl p-4">Latest Items</h1>
                     <table class="w-full whitespace-nowrap rounded-lg divide-y divide-gray-300 overflow-hidden">
                         <thead class="bg-gray-900">
@@ -66,7 +66,7 @@ const Dashboard: Component = () => {
                         </tbody>
                     </table>
                 </div>
-                <div class="overflow-x-auto w-full px-2">
+                <div class="overflow-x-auto px-2">
                     <h1 class="text-3xl p-4">Latest Categories</h1>
                     <table class="w-full whitespace-nowrap rounded-lg divide-y divide-gray-300 overflow-hidden">
                         <thead class="bg-gray-900">
