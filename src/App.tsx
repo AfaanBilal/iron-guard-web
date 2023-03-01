@@ -6,9 +6,13 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { type Component, lazy, createSignal, Show } from "solid-js";
+import { type Component, lazy, Show } from "solid-js";
 import { Routes, Route, A, useLocation } from "@solidjs/router";
+import { localStoredSignal } from "./definitions/localStoredSignal";
 import SignIn from "./views/Auth/SignIn";
+import Button from "./components/Button";
+
+export const [token, setToken] = localStoredSignal("iron-guard-token", "");
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const Inventory = lazy(() => import("./views/Inventory"));
@@ -20,7 +24,6 @@ const UserList = lazy(() => import("./views/Users/UserList"));
 const UserEditor = lazy(() => import("./views/Users/UserEditor"));
 
 const App: Component = () => {
-    const [token, setToken] = createSignal("x");
     const location = useLocation();
 
     return (
@@ -30,7 +33,8 @@ const App: Component = () => {
                 <A href="/">
                     <div class="bg-gray-700 p-4 flex">
                         <img class="w-8 h-8" src={"/src/assets/icon.png"} alt="icon" />
-                        <h1 class="ml-4 text-3xl font-bold">Iron Guard</h1>
+                        <h1 class="ml-4 text-3xl font-bold flex-grow">Iron Guard</h1>
+                        <Button label="Logout" onClick={() => setToken("")} />
                     </div>
                 </A>
                 <div class="flex-grow flex">
