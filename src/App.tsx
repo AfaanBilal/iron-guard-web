@@ -36,7 +36,7 @@ const App: Component = () => {
                         <A href="/"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname == "/" ? "bg-black" : ""}`}>Dashboard</div></A>
                         <A href="/inventory"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("inventory") ? "bg-black" : ""}`}>Inventory</div></A>
                         <A href="/items"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("items") ? "bg-black" : ""}`}>Items</div></A>
-                        <A href="/categories"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>Catagories</div></A>
+                        <A href="/categories"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>Categories</div></A>
                         <A href="/users"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("users") ? "bg-black" : ""}`}>Users</div></A>
                     </div>
                     <div class="flex-grow">
