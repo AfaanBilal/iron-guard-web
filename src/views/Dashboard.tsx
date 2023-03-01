@@ -109,7 +109,7 @@ const Dashboard: Component = () => {
                         </table>
                     </div>
                 </div>
-                <Show when={0 === 0}>
+                <Show when={data()!.latest_users.length > 0}>
                     <div class="flex mt-4">
                         <div class="overflow-x-auto px-4 flex-1">
                             <h1 class="text-3xl p-4">Latest Users</h1>
