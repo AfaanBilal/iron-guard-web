@@ -25,10 +25,10 @@ const Inventory: Component = () => {
             <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Inventory Browser</h1>
             <Show when={!data.loading} fallback={<Loading />}>
                 <div class="flex-grow">
-                    <div class="flex flex-col p-2 mb-4">
-                        <h2 class="text-2xl py-2 pl-4 rounded bg-gray-800 border-b border-b-slate-800">Categories</h2>
+                    <div class="flex flex-col p-2 mb-4 border border-slate-700">
+                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Categories</h2>
                         <div class="flex flex-col mt-2">
-                            <For each={data()?.categories}>
+                            <For each={data()?.categories} fallback={<div class="text-xl py-4 text-center text-slate-500">No data available</div>}>
                                 {c =>
                                     <div class="px-4 py-4 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
                                         <div class="text-xl">
@@ -45,10 +45,10 @@ const Inventory: Component = () => {
                             </For>
                         </div>
                     </div>
-                    <div class="flex flex-col p-2">
-                        <h2 class="text-2xl py-2 pl-4 rounded bg-gray-800 border-b border-b-slate-800">Items</h2>
+                    <div class="flex flex-col p-2 border border-slate-700">
+                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Items</h2>
                         <div class="flex flex-col mt-2">
-                            <For each={data()?.items}>
+                            <For each={data()?.items} fallback={<div class="text-xl py-4 text-center text-slate-500">No data available</div>}>
                                 {i =>
                                     <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
                                         <div class="text-xl">
