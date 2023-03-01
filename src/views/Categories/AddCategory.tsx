@@ -7,6 +7,7 @@
  */
 
 import { createSignal, type Component } from "solid-js";
+import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 
@@ -15,20 +16,22 @@ const AddCategory: Component = () => {
     const [description, setDescription] = createSignal("");
     const [category, setCategory] = createSignal("");
 
+    const save = () => { };
+
     return (
         <div class="flex-grow flex flex-col px-2">
-            <h1 class="text-5xl p-4 mb-4">Add Category</h1>
-            <div class="flex-grow p-4 bg-gray-600">
-                <div class="flex items-center mb-4">
-                    <div class="px-2 text-slate-800 text-2xl w-64">Name</div>
+            <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Add Category</h1>
+            <div class="flex-grow p-4 bg-gray-700">
+                <div class="flex items-center py-2">
+                    <div class="px-2 text-slate-300 text-xl w-64">Name</div>
                     <div class="px-2"><Input value={name()} onInput={e => setName(e.currentTarget.value)} /></div>
                 </div>
-                <div class="flex items-center mb-4">
-                    <div class="px-2 text-slate-800 text-2xl w-64">Description</div>
+                <div class="flex items-center py-2">
+                    <div class="px-2 text-slate-300 text-xl w-64">Description</div>
                     <div class="px-2"><Input value={description()} onInput={e => setDescription(e.currentTarget.value)} /></div>
                 </div>
-                <div class="flex items-center mb-4">
-                    <div class="px-2 text-slate-800 text-2xl w-64">Parent Category</div>
+                <div class="flex items-center py-2">
+                    <div class="px-2 text-slate-300 text-xl w-64">Parent Category</div>
                     <div class="px-2">
                         <Select
                             label="Select a category"
@@ -37,6 +40,9 @@ const AddCategory: Component = () => {
                             onSelect={e => setCategory(e.currentTarget.value)}
                         />
                     </div>
+                </div>
+                <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800">
+                    <Button label="Save" onClick={save} />
                 </div>
             </div>
         </div>

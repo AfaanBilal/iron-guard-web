@@ -32,7 +32,7 @@ const ListCategories: Component = () => {
         <div class="flex-grow flex flex-col px-2">
             <div class="text-5xl p-4 mb-4 flex items-center gap-4">
                 Categories
-                <A href="/categories/add"><Button label="Add" /></A>
+                <A href="/categories/add"><Button label="Add" onClick={() => { }} /></A>
             </div>
             <div class="overflow-x-auto w-full">
                 <table class="w-full whitespace-nowrap rounded-lg divide-y divide-gray-300 overflow-hidden">
