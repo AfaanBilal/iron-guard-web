@@ -13,14 +13,10 @@ import Button from "../../components/Button";
 import Category from "../../definitions/types/Category";
 import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
-
-interface CategoryListData {
-    total: number;
-    results: Category[];
-}
+import ResultList from "../../definitions/types/ResultList";
 
 const CategoryList: Component = () => {
-    const [data] = createResource<CategoryListData>(getCategoryList);
+    const [data] = createResource<ResultList<Category>>(getCategoryList);
 
     return (
         <div class="flex-grow flex flex-col px-2">

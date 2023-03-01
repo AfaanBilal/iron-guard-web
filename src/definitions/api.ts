@@ -21,3 +21,5 @@ export const getDashboardData = async () => (await fetch(API_BASE + "/dashboard"
 export const getInventoryData = async () => (await fetch(API_BASE + "/inventory", { headers: headers() })).json();
 
 export const getCategoryList = async () => (await fetch(API_BASE + "/categories", { headers: headers() })).json();
+export const getItemList = async () => (await fetch(API_BASE + "/items", { headers: headers() })).json();
+export const getUserList = async () => (await fetch(API_BASE + "/users", { headers: headers() })).json();
