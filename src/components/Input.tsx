@@ -6,13 +6,13 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { type Component } from "solid-js";
+import { type Component, type JSX } from "solid-js";
 
-const Input: Component = (props) => {
+const Input: Component<JSX.InputHTMLAttributes<HTMLInputElement>> = (props) => {
     return (
         <input
             {...props}
-            class="w-full px-4 py-2 rounded text-lg bg-slate-700 focus:outline-none"
+            class="py-2 px-2 w-64 bg-slate-800 rounded text-lg focus:outline-none"
         />
     );
 };
