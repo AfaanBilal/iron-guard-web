@@ -51,7 +51,7 @@ const App: Component = () => {
                     <div class="flex-grow">
                         <Routes>
                             <Route path="/" component={Dashboard} />
-                            <Route path="/inventory" component={Inventory} />
+                            <Route path="/inventory/:uuid?" component={Inventory} />
                             <Route path="/items" component={ItemList} />
                             <Route path="/items/add" component={ItemEditor} />
                             <Route path="/categories" component={CategoryList} />
