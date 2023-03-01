@@ -46,8 +46,9 @@ const AddItem: Component = () => {
                         />
                     </div>
                 </div>
-                <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800">
+                <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800 gap-2">
                     <Button label="Save" onClick={save} />
+                    <Button label="Cancel" onClick={() => window.history.back()} />
                 </div>
             </div>
         </div>

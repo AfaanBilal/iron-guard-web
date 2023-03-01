@@ -10,7 +10,7 @@ import { type Component } from "solid-js";
 
 const Button: Component<{ label: string, onClick: () => void }> = (props) => {
     return (
-        <div class="px-4 py-2 bg-slate-600 rounded text-lg" onClick={props.onClick}>{props.label}</div>
+        <div class="px-4 py-2 bg-slate-600 rounded text-lg cursor-pointer" onClick={props.onClick}>{props.label}</div>
     );
 };
 

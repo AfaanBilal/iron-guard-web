@@ -16,6 +16,7 @@ const AddItem = lazy(() => import("./views/Items/AddItem"));
 const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
 const AddCategory = lazy(() => import("./views/Categories/AddCategory"));
 const Users = lazy(() => import("./views/Users/ListUsers"));
+const AddUser = lazy(() => import("./views/Users/AddUser"));
 
 const App: Component = () => {
     const [token, setToken] = createSignal("x");
@@ -44,6 +45,7 @@ const App: Component = () => {
                             <Route path="/categories" component={ListCategories} />
                             <Route path="/categories/add" component={AddCategory} />
                             <Route path="/users" component={Users} />
+                            <Route path="/users/add" component={AddUser} />
                         </Routes>
                     </div>
                 </div>
