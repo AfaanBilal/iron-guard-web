@@ -19,3 +19,5 @@ const headers = (etc: object = {}) => ({ ...etc, token: token() });
 
 export const getDashboardData = async () => (await fetch(API_BASE + "/dashboard", { headers: headers() })).json();
 export const getInventoryData = async () => (await fetch(API_BASE + "/inventory", { headers: headers() })).json();
+
+export const getCategoryList = async () => (await fetch(API_BASE + "/categories", { headers: headers() })).json();

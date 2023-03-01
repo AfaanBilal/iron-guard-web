@@ -8,6 +8,7 @@
 
 import { Component, createResource, For, Show } from "solid-js";
 import Loading from "../components/Loading";
+import NoDataAvailable from "../components/NoDataAvailable";
 import { getDashboardData } from "../definitions/api";
 import Category from "../definitions/types/Category";
 import Item from "../definitions/types/Item";
@@ -65,11 +66,7 @@ const Dashboard: Component = () => {
                             <tbody class="divide-y divide-gray-600 bg-slate-800">
                                 <For
                                     each={data()?.latest_items}
-                                    fallback={
-                                        <tr>
-                                            <td colspan="3" class="py-4 text-slate-500 text-center">No data available</td>
-                                        </tr>
-                                    }>
+                                    fallback={<NoDataAvailable col={3} />}>
                                     {i =>
                                         <tr>
                                             <td class="px-6 py-4">{i.name}</td>
@@ -93,11 +90,7 @@ const Dashboard: Component = () => {
                             <tbody class="divide-y divide-gray-600 bg-slate-800">
                                 <For
                                     each={data()?.latest_categories}
-                                    fallback={
-                                        <tr>
-                                            <td colspan="2" class="py-4 text-slate-500 text-center">No data available</td>
-                                        </tr>
-                                    }>
+                                    fallback={<NoDataAvailable col={2} />}>
                                     {c =>
                                         <tr>
                                             <td class="px-6 py-4">{c.name}</td>
@@ -123,7 +116,9 @@ const Dashboard: Component = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-600 bg-slate-800">
-                                    <For each={data()?.latest_users}>
+                                    <For
+                                        each={data()?.latest_users}
+                                        fallback={<NoDataAvailable col={4} />}>
                                         {u =>
                                             <tr>
                                                 <td class="px-6 py-4">{u.firstname}</td>
