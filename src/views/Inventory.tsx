@@ -30,15 +30,18 @@ const Inventory: Component = () => {
             <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Inventory Browser</h1>
             <div class="flex-grow">
                 <div class="flex flex-col p-2 mb-4">
-                    <h2 class="text-2xl py-2 ml-4 border-b border-b-slate-800">Categories</h2>
-                    <div class="flex flex-col">
+                    <h2 class="text-2xl py-2 pl-4 rounded bg-gray-800 border-b border-b-slate-800">Categories</h2>
+                    <div class="flex flex-col mt-2">
                         <For each={categories}>
                             {c =>
-                                <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
-                                    <div class="text-slate-300 text-xl">
+                                <div class="px-4 py-4 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
+                                    <div class="text-xl">
+                                        📁
+                                    </div>
+                                    <div class="text-slate-300 text-lg">
                                         {c.name}
                                     </div>
-                                    <div class="text-slate-400 flex-grow">
+                                    <div class="text-slate-400 flex-grow text-sm">
                                         {c.description}
                                     </div>
                                 </div>
@@ -47,15 +50,18 @@ const Inventory: Component = () => {
                     </div>
                 </div>
                 <div class="flex flex-col p-2">
-                    <h2 class="text-2xl py-2 ml-4 border-b border-b-slate-800">Items</h2>
-                    <div class="flex flex-col">
+                    <h2 class="text-2xl py-2 pl-4 rounded bg-gray-800 border-b border-b-slate-800">Items</h2>
+                    <div class="flex flex-col mt-2">
                         <For each={items}>
                             {i =>
                                 <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
-                                    <div class="text-slate-300 text-xl">
+                                    <div class="text-xl">
+                                        📦
+                                    </div>
+                                    <div class="text-slate-300 text-lg">
                                         {i.name}
                                     </div>
-                                    <div class="text-slate-400 flex-grow">
+                                    <div class="text-slate-400 flex-grow text-sm">
                                         {i.description}
                                     </div>
                                     <div class="p-2 bg-slate-700 rounded">
