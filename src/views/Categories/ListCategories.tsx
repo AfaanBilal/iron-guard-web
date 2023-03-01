@@ -8,7 +8,7 @@
 
 import { type Component, For } from "solid-js";
 
-const items = [
+const categories = [
     { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
     { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
     { name: "Monitor", description: "A monitor is a window into the workings of electricity.", itemCount: 42 },
@@ -40,12 +40,12 @@ const ListCategories: Component = () => {
                         </tr>
                     </thead>
                     <tbody class="divide-y divide-gray-600 bg-slate-800">
-                        <For each={items}>
-                            {i =>
+                        <For each={categories}>
+                            {c =>
                                 <tr>
-                                    <td class="px-6 py-4">{i.name}</td>
-                                    <td class="px-6 py-4">{i.description}</td>
-                                    <td class="px-6 py-4">{i.itemCount}</td>
+                                    <td class="px-6 py-4">{c.name}</td>
+                                    <td class="px-6 py-4">{c.description}</td>
+                                    <td class="px-6 py-4">{c.itemCount}</td>
                                     <td class="px-6 py-4">View / Edit / Delete</td>
                                 </tr>
                             }
