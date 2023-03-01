@@ -8,7 +8,7 @@
 
 import { Component, createSignal, Show } from "solid-js";
 import { setToken } from "../../App";
-import { API_BASE, Status } from "../../definitions/api";
+import { doSignIn, Status } from "../../definitions/api";
 
 const SignIn: Component = () => {
     const [email, setEmail] = createSignal("");
@@ -25,7 +25,7 @@ const SignIn: Component = () => {
         setLoading(true);
         setError("");
 
-        const r = await (await fetch(API_BASE + "/auth/sign-in", { method: "POST", body: JSON.stringify({ email: email(), password: password() }) })).json();
+        const r = await doSignIn(email(), password());
 
         if (r.status === Status.Success) {
             setToken(r.token);

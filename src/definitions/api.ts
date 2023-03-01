@@ -15,6 +15,8 @@ export enum Status {
     Error = "error",
 }
 
+export const doSignIn = async (email: string, password: string) => (await fetch(API_BASE + "/auth/sign-in", { method: "POST", body: JSON.stringify({ email, password }) })).json();
+
 const headers = (etc: object = {}) => ({ ...etc, token: token() });
 
 export const getDashboardData = async () => (await fetch(API_BASE + "/dashboard", { headers: headers() })).json();
