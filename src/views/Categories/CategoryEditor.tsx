@@ -6,7 +6,7 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { createSignal, Show, type Component } from "solid-js";
+import { createEffect, createSignal, Show, type Component } from "solid-js";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
@@ -58,7 +58,7 @@ const AddCategory: Component = () => {
                             label="Select a category"
                             options={categoryList()?.results.map(c => ({ value: c.uuid, label: c.name })) || []}
                             selected={parentCategory()}
-                            onSelect={e => setParentCategory(e.currentTarget.value)}
+                            onChange={e => setParentCategory(e.currentTarget.value)}
                         />
                     </div>
                 </div>
