@@ -11,6 +11,7 @@ import { Routes, Route, A, useLocation } from "@solidjs/router";
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const ListItems = lazy(() => import("./views/Items/ListItems"));
+const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
 
 const App: Component = () => {
     const location = useLocation();
@@ -31,7 +32,7 @@ const App: Component = () => {
                     <Routes>
                         <Route path="/" component={Dashboard} />
                         <Route path="/items" component={ListItems} />
-                        <Route path="/categories" element={<div>Categories</div>} />
+                        <Route path="/categories" component={ListCategories} />
                         <Route path="/users" element={<div>Users</div>} />
                     </Routes>
                 </div>
