@@ -16,7 +16,7 @@ const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
 const Users = lazy(() => import("./views/Users/ListUsers"));
 
 const App: Component = () => {
-    const [token, setToken] = createSignal("x");
+    const [token, setToken] = createSignal("");
     const location = useLocation();
 
     return (
