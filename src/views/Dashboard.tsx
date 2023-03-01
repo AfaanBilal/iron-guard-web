@@ -7,6 +7,7 @@
  */
 
 import { Component, createResource, For, Show } from "solid-js";
+import Loading from "../components/Loading";
 import { getDashboardData } from "../definitions/api";
 import Category from "../definitions/types/Category";
 import Item from "../definitions/types/Item";
@@ -23,11 +24,11 @@ interface DashboardData {
 }
 
 const Dashboard: Component = () => {
-    const [dashboard] = createResource<DashboardData>(getDashboardData);
+    const [data] = createResource<DashboardData>(getDashboardData);
 
     return (
         <div class="flex-grow flex flex-col">
-            <Show when={!dashboard.loading}>
+            <Show when={!data.loading} fallback={<Loading />}>
                 <div class="flex flex-wrap gap-4 p-4">
                     <div class="flex-grow h-48 pb-4 grid grid-cols-2 items-end border bg-slate-700 border-slate-600 rounded-lg">
                         <div class="ml-8">
@@ -39,14 +40,14 @@ const Dashboard: Component = () => {
                         </div>
                     </div>
                     <div class="w-64 h-48 grid items-center text-center border bg-slate-700 border-slate-600 rounded-lg">
-                        <div class="text-6xl">{dashboard()?.count_items} <br /><span class="text-lg uppercase">items</span></div>
+                        <div class="text-6xl">{data()?.count_items} <br /><span class="text-lg uppercase">items</span></div>
                     </div>
                     <div class="w-64 h-48 grid items-center text-center border bg-slate-700 border-slate-600 rounded-lg">
-                        <div class="text-6xl">{dashboard()?.count_categories} <br /><span class="text-lg uppercase">categories</span></div>
+                        <div class="text-6xl">{data()?.count_categories} <br /><span class="text-lg uppercase">categories</span></div>
                     </div>
-                    <Show when={dashboard()!.count_users > 0}>
+                    <Show when={data()!.count_users > 0}>
                         <div class="w-64 h-48 grid items-center text-center border bg-slate-700 border-slate-600 rounded-lg">
-                            <div class="text-6xl">{dashboard()?.count_users}  <br /><span class="text-lg uppercase">users</span></div>
+                            <div class="text-6xl">{data()?.count_users}  <br /><span class="text-lg uppercase">users</span></div>
                         </div>
                     </Show>
                 </div>
@@ -63,7 +64,7 @@ const Dashboard: Component = () => {
                             </thead>
                             <tbody class="divide-y divide-gray-600 bg-slate-800">
                                 <For
-                                    each={dashboard()?.latest_items}
+                                    each={data()?.latest_items}
                                     fallback={
                                         <tr>
                                             <td colspan="3" class="py-4 text-slate-500 text-center">No data available</td>
@@ -91,7 +92,7 @@ const Dashboard: Component = () => {
                             </thead>
                             <tbody class="divide-y divide-gray-600 bg-slate-800">
                                 <For
-                                    each={dashboard()?.latest_categories}
+                                    each={data()?.latest_categories}
                                     fallback={
                                         <tr>
                                             <td colspan="2" class="py-4 text-slate-500 text-center">No data available</td>
@@ -122,7 +123,7 @@ const Dashboard: Component = () => {
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-600 bg-slate-800">
-                                    <For each={dashboard()?.latest_users}>
+                                    <For each={data()?.latest_users}>
                                         {u =>
                                             <tr>
                                                 <td class="px-6 py-4">{u.firstname}</td>
