@@ -8,6 +8,7 @@
 
 interface User {
     uuid: string;
+    role: string;
     firstname: string;
     lastname: string;
     email: string;

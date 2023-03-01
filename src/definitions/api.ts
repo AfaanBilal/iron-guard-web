@@ -6,9 +6,15 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-export const API_BASE = "http://localhost:8000/";
+import { token } from "../App";
+
+export const API_BASE = "http://localhost:8000";
 
 export enum Status {
     Success = "success",
     Error = "error",
 }
+
+const headers = (etc: object = {}) => ({ ...etc, token: token() });
+
+export const getDashboardData = async () => (await fetch(API_BASE + "/dashboard", { headers: headers() })).json();
