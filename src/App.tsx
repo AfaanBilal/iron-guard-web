@@ -11,6 +11,7 @@ import { Routes, Route, A, useLocation } from "@solidjs/router";
 import SignIn from "./views/Auth/SignIn";
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
+const Inventory = lazy(() => import("./views/Inventory"));
 const ListItems = lazy(() => import("./views/Items/ListItems"));
 const AddItem = lazy(() => import("./views/Items/AddItem"));
 const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
@@ -33,6 +34,7 @@ const App: Component = () => {
                 <div class="flex-grow flex">
                     <div class="w-64 bg-gray-800 border-r border-r-slate-600 text-lg text-gray-300">
                         <A href="/"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname == "/" ? "bg-black" : ""}`}>Dashboard</div></A>
+                        <A href="/inventory"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("inventory") ? "bg-black" : ""}`}>Inventory</div></A>
                         <A href="/items"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("items") ? "bg-black" : ""}`}>Items</div></A>
                         <A href="/categories"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>Catagories</div></A>
                         <A href="/users"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("users") ? "bg-black" : ""}`}>Users</div></A>
@@ -40,6 +42,7 @@ const App: Component = () => {
                     <div class="flex-grow">
                         <Routes>
                             <Route path="/" component={Dashboard} />
+                            <Route path="/inventory" component={Inventory} />
                             <Route path="/items" component={ListItems} />
                             <Route path="/items/add" component={AddItem} />
                             <Route path="/categories" component={ListCategories} />
