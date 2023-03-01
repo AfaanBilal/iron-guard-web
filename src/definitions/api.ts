@@ -28,3 +28,4 @@ export const getUserList = async () => (await fetch(API_BASE + "/users", { heade
 
 export const addCategory = async (name: string, description: string, parent_uuid: string) => (await fetch(API_BASE + "/categories", { method: "POST", headers: headers(), body: JSON.stringify({ name, description, parent_uuid }) })).json();
 export const addItem = async (name: string, description: string, quantity: number, category_uuid: string) => (await fetch(API_BASE + "/items", { method: "POST", headers: headers(), body: JSON.stringify({ name, description, quantity, category_uuid }) })).json();
+export const addUser = async (role: string, firstname: string, lastname: string, email: string, password: string) => (await fetch(API_BASE + "/users", { method: "POST", headers: headers(), body: JSON.stringify({ role, firstname, lastname, email, password }) })).json();

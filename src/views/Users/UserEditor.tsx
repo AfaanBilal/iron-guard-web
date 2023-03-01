@@ -6,10 +6,11 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { createSignal, type Component } from "solid-js";
+import { createSignal, Show, type Component } from "solid-js";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
+import { addUser, Status } from "../../definitions/api";
 
 const AddUser: Component = () => {
     const [role, setRole] = createSignal("user");
@@ -17,12 +18,31 @@ const AddUser: Component = () => {
     const [lastname, setLastname] = createSignal("");
     const [email, setEmail] = createSignal("");
     const [password, setPassword] = createSignal("");
+    const [error, setError] = createSignal("");
 
-    const save = () => { };
+    const save = async () => {
+        if (firstname().trim() === "") {
+            setError("Please fill firstname, lastname and email.");
+            return;
+        }
+
+        const r = await addUser(role(), firstname(), lastname(), email(), password());
+
+        if (r.status === Status.Success) {
+            window.history.back();
+        } else {
+            setError(r.message);
+        }
+    };
 
     return (
         <div class="flex-grow flex flex-col px-2">
-            <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Add User</h1>
+            <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">
+                Add User
+                <Show when={error() !== ""}>
+                    <span class="ml-4 px-4 py-2 rounded text-xl bg-red-900 text-gray-300">{error()}</span>
+                </Show>
+            </h1>
             <div class="flex-grow p-4 bg-gray-700">
                 <div class="flex items-center py-2">
                     <div class="px-2 text-slate-300 text-xl w-64">Firstname</div>
@@ -47,7 +67,7 @@ const AddUser: Component = () => {
                             label="Select a role"
                             options={[{ value: "user", label: "User" }, { value: "admin", label: "Admin" }]}
                             selected={role()}
-                            onSelect={e => setRole(e.currentTarget.value)}
+                            onChange={e => setRole(e.currentTarget.value)}
                         />
                     </div>
                 </div>
