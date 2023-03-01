@@ -20,6 +20,8 @@ interface InventoryData {
 const Inventory: Component = () => {
     const [data] = createResource<InventoryData>(getInventoryData);
 
+    const NoData = () => <div class="text-xl py-4 text-center text-slate-500">No data available</div>;
+
     return (
         <div class="flex-grow flex flex-col px-2">
             <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Inventory Browser</h1>
@@ -28,7 +30,7 @@ const Inventory: Component = () => {
                     <div class="flex flex-col p-2 mb-4 border border-slate-700">
                         <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Categories</h2>
                         <div class="flex flex-col mt-2">
-                            <For each={data()?.categories} fallback={<div class="text-xl py-4 text-center text-slate-500">No data available</div>}>
+                            <For each={data()?.categories} fallback={NoData()}>
                                 {c =>
                                     <div class="px-4 py-4 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
                                         <div class="text-xl">
@@ -48,7 +50,7 @@ const Inventory: Component = () => {
                     <div class="flex flex-col p-2 border border-slate-700">
                         <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Items</h2>
                         <div class="flex flex-col mt-2">
-                            <For each={data()?.items} fallback={<div class="text-xl py-4 text-center text-slate-500">No data available</div>}>
+                            <For each={data()?.items} fallback={NoData()}>
                                 {i =>
                                     <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
                                         <div class="text-xl">
