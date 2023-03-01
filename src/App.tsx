@@ -13,10 +13,11 @@ import SignIn from "./views/Auth/SignIn";
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const ListItems = lazy(() => import("./views/Items/ListItems"));
 const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
+const AddCategory = lazy(() => import("./views/Categories/AddCategory"));
 const Users = lazy(() => import("./views/Users/ListUsers"));
 
 const App: Component = () => {
-    const [token, setToken] = createSignal("");
+    const [token, setToken] = createSignal("x");
     const location = useLocation();
 
     return (
@@ -39,6 +40,7 @@ const App: Component = () => {
                             <Route path="/" component={Dashboard} />
                             <Route path="/items" component={ListItems} />
                             <Route path="/categories" component={ListCategories} />
+                            <Route path="/categories/add" component={AddCategory} />
                             <Route path="/users" component={Users} />
                         </Routes>
                     </div>
