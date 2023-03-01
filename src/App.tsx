@@ -12,12 +12,12 @@ import SignIn from "./views/Auth/SignIn";
 
 const Dashboard = lazy(() => import("./views/Dashboard"));
 const Inventory = lazy(() => import("./views/Inventory"));
-const ListItems = lazy(() => import("./views/Items/ListItems"));
-const AddItem = lazy(() => import("./views/Items/AddItem"));
-const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
-const AddCategory = lazy(() => import("./views/Categories/AddCategory"));
-const Users = lazy(() => import("./views/Users/ListUsers"));
-const AddUser = lazy(() => import("./views/Users/AddUser"));
+const ItemList = lazy(() => import("./views/Items/ItemList"));
+const ItemEditor = lazy(() => import("./views/Items/ItemEditor"));
+const CategoryList = lazy(() => import("./views/Categories/CategoryList"));
+const CategoryEditor = lazy(() => import("./views/Categories/CategoryEditor"));
+const UserList = lazy(() => import("./views/Users/UserList"));
+const UserEditor = lazy(() => import("./views/Users/UserEditor"));
 
 const App: Component = () => {
     const [token, setToken] = createSignal("x");
@@ -48,12 +48,12 @@ const App: Component = () => {
                         <Routes>
                             <Route path="/" component={Dashboard} />
                             <Route path="/inventory" component={Inventory} />
-                            <Route path="/items" component={ListItems} />
-                            <Route path="/items/add" component={AddItem} />
-                            <Route path="/categories" component={ListCategories} />
-                            <Route path="/categories/add" component={AddCategory} />
-                            <Route path="/users" component={Users} />
-                            <Route path="/users/add" component={AddUser} />
+                            <Route path="/items" component={ItemList} />
+                            <Route path="/items/add" component={ItemEditor} />
+                            <Route path="/categories" component={CategoryList} />
+                            <Route path="/categories/add" component={CategoryEditor} />
+                            <Route path="/users" component={UserList} />
+                            <Route path="/users/add" component={UserEditor} />
                         </Routes>
                     </div>
                 </div>
