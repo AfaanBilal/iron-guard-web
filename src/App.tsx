@@ -16,18 +16,21 @@ const ListCategories = lazy(() => import("./views/Categories/ListCategories"));
 const Users = lazy(() => import("./views/Users/ListUsers"));
 
 const App: Component = () => {
-    const [token, setToken] = createSignal("");
+    const [token, setToken] = createSignal("x");
     const location = useLocation();
 
     return (
         <div class="h-screen flex-grow flex flex-col text-white bg-slate-900">
             <Show when={token() === ""}><SignIn /></Show>
             <Show when={token() !== ""}>
-                <div class="bg-gray-700 p-4">
-                    <h1 class="text-3xl font-bold">Iron Guard</h1>
+                <div class="bg-gray-700 p-4 flex">
+                    <img class="w-8 h-8" src={"/src/assets/icon.png"} alt="icon" />
+                    <h1 class="ml-4 text-3xl font-bold">
+                        Iron Guard
+                    </h1>
                 </div>
                 <div class="flex-grow flex">
-                    <div class="w-48 bg-gray-800 border-r border-r-slate-600 text-lg text-gray-300">
+                    <div class="w-64 bg-gray-800 border-r border-r-slate-600 text-lg text-gray-300">
                         <A href="/"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname == "/" ? "bg-black" : ""}`}>Dashboard</div></A>
                         <A href="/items"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("items") ? "bg-black" : ""}`}>Items</div></A>
                         <A href="/categories"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>Catagories</div></A>

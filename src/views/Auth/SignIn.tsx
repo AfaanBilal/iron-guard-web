@@ -13,7 +13,7 @@ const SignIn: Component = () => {
         <div class="flex-grow grid place-items-center">
             <div class="bg-slate-700 p-8 rounded-2xl">
                 <div class="grid place-items-center pb-4">
-                    <img class="w-48 h-48" src={"/src/assets/icon.png"} />
+                    <img class="w-48 h-48" src={"/src/assets/icon.png"} alt="icon" />
                 </div>
                 <div class="p-4">
                     <h1 class="pb-4 border-b border-b-slate-500 text-6xl font-extrabold text-center">Iron Guard</h1>
