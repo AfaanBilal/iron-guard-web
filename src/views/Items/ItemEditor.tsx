@@ -18,6 +18,12 @@ import { categoryList } from "../Categories/CategoryList";
 const AddItem: Component = () => {
     const params = useParams();
 
+    const [name, setName] = createSignal("");
+    const [description, setDescription] = createSignal("");
+    const [quantity, setQuantity] = createSignal(0);
+    const [category, setCategory] = createSignal("");
+    const [error, setError] = createSignal("");
+
     const [uuid, _] = createSignal(params.uuid || "");
     const [data] = createResource(() => params.uuid || null, getItem);
 
@@ -30,12 +36,6 @@ const AddItem: Component = () => {
             setCategory(i.category?.uuid || "");
         }
     });
-
-    const [name, setName] = createSignal("");
-    const [description, setDescription] = createSignal("");
-    const [quantity, setQuantity] = createSignal(0);
-    const [category, setCategory] = createSignal("");
-    const [error, setError] = createSignal("");
 
     const save = async () => {
         if (name().trim() === "") {

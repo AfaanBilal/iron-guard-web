@@ -34,4 +34,6 @@ export const getCategory = async (uuid: string) => (await fetch(API_BASE + "/cat
 export const getItem = async (uuid: string) => (await fetch(API_BASE + "/items/" + uuid, { headers: headers() })).json();
 export const getUser = async (uuid: string) => (await fetch(API_BASE + "/users/" + uuid, { headers: headers() })).json();
 
+export const updateCategory = async (uuid: string, name: string, description: string, parent_uuid: string) => (await fetch(API_BASE + "/categories/" + uuid, { method: "PUT", headers: headers(), body: JSON.stringify({ name, description, parent_uuid }) })).json();
 export const updateItem = async (uuid: string, name: string, description: string, quantity: number, category_uuid: string) => (await fetch(API_BASE + "/items/" + uuid, { method: "PUT", headers: headers(), body: JSON.stringify({ name, description, quantity, category_uuid }) })).json();
+export const updateUser = async (uuid: string, role: string, firstname: string, lastname: string, email: string, password: string) => (await fetch(API_BASE + "/users/" + uuid, { method: "PUT", headers: headers(), body: JSON.stringify({ role, firstname, lastname, email, password }) })).json();
