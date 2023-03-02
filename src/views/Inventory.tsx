@@ -8,7 +8,6 @@
 
 import { A, useParams } from "@solidjs/router";
 import { Component, createResource, For, Show } from "solid-js";
-import Button from "../components/Button";
 import Loading from "../components/Loading";
 import { getInventoryData } from "../definitions/api";
 
@@ -21,14 +20,17 @@ const Inventory: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
             <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Inventory Browser</h1>
-            <h3 class="px-4 py-2 flex items-center">
-                {data()?.category?.name}
-                <Button label="Back" onClick={() => window.history.back()} />
-            </h3>
+            <Show when={data()?.category}>
+                <div class="px-4 underline text-slate-500 cursor-pointer" onClick={() => window.history.back()}>Back</div>
+                <div class="flex gap-4 items-center p-2">
+                    <h3 class="text-2xl font-bold text-slate-300">{data()?.category?.name}</h3>
+                    <p class="text-slate-500">{data()?.category?.description}</p>
+                </div>
+            </Show>
             <Show when={!data.loading} fallback={<Loading />}>
                 <div class="flex-grow">
                     <div class="flex flex-col p-2 mb-4 border border-slate-700">
-                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Categories</h2>
+                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Categories ({data()?.categories?.length})</h2>
                         <div class="flex flex-col mt-2">
                             <For each={data()?.categories} fallback={NoData()}>
                                 {c =>
@@ -50,7 +52,7 @@ const Inventory: Component = () => {
                         </div>
                     </div>
                     <div class="flex flex-col p-2 border border-slate-700">
-                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Items</h2>
+                        <h2 class="text-2xl py-2 pl-4 rounded border-b border-b-slate-800">Items ({data()?.items?.length})</h2>
                         <div class="flex flex-col mt-2">
                             <For each={data()?.items} fallback={NoData()}>
                                 {i =>
