@@ -33,3 +33,5 @@ export const addUser = async (role: string, firstname: string, lastname: string,
 export const getCategory = async (uuid: string) => (await fetch(API_BASE + "/categories/" + uuid, { headers: headers() })).json();
 export const getItem = async (uuid: string) => (await fetch(API_BASE + "/items/" + uuid, { headers: headers() })).json();
 export const getUser = async (uuid: string) => (await fetch(API_BASE + "/users/" + uuid, { headers: headers() })).json();
+
+export const updateItem = async (uuid: string, name: string, description: string, quantity: number, category_uuid: string) => (await fetch(API_BASE + "/items/" + uuid, { method: "PUT", headers: headers(), body: JSON.stringify({ name, description, quantity, category_uuid }) })).json();

@@ -54,10 +54,13 @@ const App: Component = () => {
                             <Route path="/inventory/:uuid?" component={Inventory} />
                             <Route path="/items" component={ItemList} />
                             <Route path="/items/add" component={ItemEditor} />
+                            <Route path="/items/:uuid" component={ItemEditor} />
                             <Route path="/categories" component={CategoryList} />
                             <Route path="/categories/add" component={CategoryEditor} />
+                            <Route path="/categories/:uuid" component={CategoryEditor} />
                             <Route path="/users" component={UserList} />
                             <Route path="/users/add" component={UserEditor} />
+                            <Route path="/users/:uuid" component={UserEditor} />
                         </Routes>
                     </div>
                 </div>

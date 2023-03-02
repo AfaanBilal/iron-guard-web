@@ -44,7 +44,7 @@ const ItemList: Component = () => {
                                         <td class="px-6 py-4">{i.name}</td>
                                         <td class="px-6 py-4">{i.description}</td>
                                         <td class="px-6 py-4">{i.quantity}</td>
-                                        <td class="px-6 py-4">View / Edit / Delete</td>
+                                        <td class="px-6 py-4 cursor-pointer"><A href={`/items/${i.uuid}`}>Edit</A></td>
                                     </tr>
                                 }
                             </For>
