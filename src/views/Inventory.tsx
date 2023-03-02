@@ -22,6 +22,7 @@ const Inventory: Component = () => {
         <div class="flex-grow flex flex-col px-2">
             <h1 class="px-4 py-2 my-4 text-3xl border-b border-b-slate-700">Inventory Browser</h1>
             <h3 class="px-4 py-2 flex items-center">
+                {data()?.category?.name}
                 <Button label="Back" onClick={() => window.history.back()} />
             </h3>
             <Show when={!data.loading} fallback={<Loading />}>
