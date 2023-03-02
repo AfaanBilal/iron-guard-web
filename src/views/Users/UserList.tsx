@@ -46,7 +46,7 @@ const UserList: Component = () => {
                                         <td class="px-6 py-4">{u.lastname}</td>
                                         <td class="px-6 py-4">{u.email}</td>
                                         <td class="px-6 py-4">{u.role}</td>
-                                        <td class="px-6 py-4">View / Edit / Delete</td>
+                                        <td class="px-6 py-4 cursor-pointer"><A href={`/users/${u.uuid}`}>Edit</A></td>
                                     </tr>
                                 }
                             </For>

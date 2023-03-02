@@ -42,7 +42,7 @@ const CategoryList: Component = () => {
                                     <tr>
                                         <td class="px-6 py-4">{c.name}</td>
                                         <td class="px-6 py-4">{c.description}</td>
-                                        <td class="px-6 py-4">View / Edit / Delete</td>
+                                        <td class="px-6 py-4 cursor-pointer"><A href={`/categories/${c.uuid}`}>Edit</A></td>
                                     </tr>
                                 }
                             </For>
