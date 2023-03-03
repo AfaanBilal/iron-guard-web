@@ -31,3 +31,9 @@ export const updateCategory = async (uuid: string, name: string, description: st
         API_BASE + "/categories/" + uuid,
         { method: "PUT", ...headers(), body: JSON.stringify({ name, description, parent_uuid }) }
     ).then(handleTokenExpired)).json();
+
+export const deleteCategory = async (uuid: string) =>
+    (await fetch(
+        API_BASE + "/categories/" + uuid,
+        { method: "DELETE", ...headers() }
+    ).then(handleTokenExpired)).json();

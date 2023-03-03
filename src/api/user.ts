@@ -31,3 +31,9 @@ export const updateUser = async (uuid: string, role: string, firstname: string, 
         API_BASE + "/users/" + uuid,
         { method: "PUT", ...headers(), body: JSON.stringify({ role, firstname, lastname, email, password }) }
     ).then(handleTokenExpired)).json();
+
+export const deleteUser = async (uuid: string) =>
+    (await fetch(
+        API_BASE + "/users/" + uuid,
+        { method: "DELETE", ...headers() }
+    ).then(handleTokenExpired)).json();

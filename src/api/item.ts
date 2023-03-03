@@ -31,3 +31,9 @@ export const updateItem = async (uuid: string, name: string, description: string
         API_BASE + "/items/" + uuid,
         { method: "PUT", ...headers(), body: JSON.stringify({ name, description, quantity, category_uuid }) }
     ).then(handleTokenExpired)).json();
+
+export const deleteItem = async (uuid: string) =>
+    (await fetch(
+        API_BASE + "/items/" + uuid,
+        { method: "DELETE", ...headers() }
+    ).then(handleTokenExpired)).json();
