@@ -8,8 +8,8 @@
 
 import { A, useParams } from "@solidjs/router";
 import { Component, createResource, For, Show } from "solid-js";
+import { getInventoryData } from "../api/inventory";
 import Loading from "../components/Loading";
-import { getInventoryData } from "../definitions/api";
 
 const Inventory: Component = () => {
     const params = useParams();

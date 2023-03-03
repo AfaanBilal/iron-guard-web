@@ -11,9 +11,9 @@ import { A } from "@solidjs/router";
 import Button from "../../components/Button";
 import ResultList from "../../definitions/types/ResultList";
 import Item from "../../definitions/types/Item";
-import { getItemList } from "../../definitions/api";
 import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
+import { getItemList } from "../../api/item";
 
 const ItemList: Component = () => {
     const [data] = createResource<ResultList<Item>>(getItemList);

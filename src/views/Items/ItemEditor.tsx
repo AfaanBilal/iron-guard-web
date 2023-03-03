@@ -8,10 +8,11 @@
 
 import { useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
+import { Status } from "../../api/api";
+import { addItem, getItem, updateItem } from "../../api/item";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
-import { addItem, getItem, Status, updateItem } from "../../definitions/api";
 import Item from "../../definitions/types/Item";
 import { categoryList } from "../Categories/CategoryList";
 

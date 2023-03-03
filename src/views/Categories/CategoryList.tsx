@@ -8,12 +8,12 @@
 
 import { type Component, For, createResource, Show } from "solid-js";
 import { A } from "@solidjs/router";
-import { getCategoryList } from "../../definitions/api";
 import Button from "../../components/Button";
 import Category from "../../definitions/types/Category";
 import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
 import ResultList from "../../definitions/types/ResultList";
+import { getCategoryList } from "../../api/category";
 
 export const [categoryList] = createResource<ResultList<Category>>(getCategoryList);
 

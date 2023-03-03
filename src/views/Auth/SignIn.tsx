@@ -7,8 +7,9 @@
  */
 
 import { Component, createSignal, Show } from "solid-js";
+import { Status } from "../../api/api";
+import { doSignIn } from "../../api/signIn";
 import { setToken } from "../../App";
-import { doSignIn, Status } from "../../definitions/api";
 
 const SignIn: Component = () => {
     const [email, setEmail] = createSignal("");

@@ -7,9 +7,9 @@
  */
 
 import { Component, createResource, For, Show } from "solid-js";
+import { getDashboardData } from "../api/dashboard";
 import Loading from "../components/Loading";
 import NoDataAvailable from "../components/NoDataAvailable";
-import { getDashboardData } from "../definitions/api";
 import Category from "../definitions/types/Category";
 import Item from "../definitions/types/Item";
 import User from "../definitions/types/User";

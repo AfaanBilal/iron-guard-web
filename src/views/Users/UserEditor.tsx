@@ -8,10 +8,11 @@
 
 import { useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
+import { Status } from "../../api/api";
+import { addUser, getUser, updateUser } from "../../api/user";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
-import { addUser, getUser, Status, updateUser } from "../../definitions/api";
 import User from "../../definitions/types/User";
 
 const AddUser: Component = () => {
