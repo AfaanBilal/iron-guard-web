@@ -39,11 +39,31 @@ const App: Component = () => {
                 </A>
                 <div class="flex-grow flex">
                     <div class="w-64 flex flex-col bg-gray-800 border-r border-r-slate-600 text-lg text-gray-300">
-                        <A href="/"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname == "/" ? "bg-black" : ""}`}>Dashboard</div></A>
-                        <A href="/inventory"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("inventory") ? "bg-black" : ""}`}>Inventory</div></A>
-                        <A href="/items"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("items") ? "bg-black" : ""}`}>Items</div></A>
-                        <A href="/categories"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>Categories</div></A>
-                        <A href="/users"><div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("users") ? "bg-black" : ""}`}>Users</div></A>
+                        <A href="/">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname == "/" ? "bg-black" : ""}`}>
+                                Dashboard
+                            </div>
+                        </A>
+                        <A href="/inventory">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("inventory") ? "bg-black" : ""}`}>
+                                Inventory
+                            </div>
+                        </A>
+                        <A href="/items">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("items") ? "bg-black" : ""}`}>
+                                Items
+                            </div>
+                        </A>
+                        <A href="/categories">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("categories") ? "bg-black" : ""}`}>
+                                Categories
+                            </div>
+                        </A>
+                        <A href="/users">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("users") ? "bg-black" : ""}`}>
+                                Users
+                            </div>
+                        </A>
                         <div class="absolute bottom-0 text-center pl-4 pb-4">
                             &copy; <a class="text-zinc-400" href="https://afaan.dev" target="_blank">Afaan Bilal</a>
                         </div>
