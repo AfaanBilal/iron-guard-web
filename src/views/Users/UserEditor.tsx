@@ -31,7 +31,7 @@ const AddUser: Component = () => {
     const [data] = createResource(() => params.uuid || null, getUser);
 
     createEffect(() => {
-        if (data().uuid) {
+        if (data()) {
             const u = data() as User;
             setFirstname(u.firstname);
             setLastname(u.lastname);

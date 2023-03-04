@@ -29,7 +29,7 @@ const AddCategory: Component = () => {
     const [data] = createResource(() => params.uuid || null, getCategory);
 
     createEffect(() => {
-        if (data().uuid) {
+        if (data()) {
             const c = data() as Category;
             setName(c.name);
             setDescription(c.description);

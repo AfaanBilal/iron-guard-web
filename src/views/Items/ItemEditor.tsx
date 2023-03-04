@@ -31,7 +31,7 @@ const AddItem: Component = () => {
     const [data] = createResource(() => params.uuid || null, getItem);
 
     createEffect(() => {
-        if (data().uuid) {
+        if (data()) {
             const i = data() as Item;
             setName(i.name);
             setDescription(i.description);
