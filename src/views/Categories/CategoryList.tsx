@@ -7,17 +7,26 @@
  */
 
 import { type Component, For, createResource, Show } from "solid-js";
-import { A } from "@solidjs/router";
+import { A, useNavigate } from "@solidjs/router";
 import Button from "../../components/Button";
 import Category from "../../definitions/types/Category";
 import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
 import ResultList from "../../definitions/types/ResultList";
-import { getCategoryList } from "../../api/category";
+import { deleteCategory, getCategoryList } from "../../api/category";
 
-export const [categoryList, { refetch: refetchCategoryList }] = createResource<ResultList<Category>>(getCategoryList);
+export const [categoryList, { refetch }] = createResource<ResultList<Category>>(getCategoryList);
+export const remove = (uuid: string, navigate: ReturnType<typeof useNavigate>) => {
+    if (!window.confirm("Are you sure?")) return;
+
+    deleteCategory(uuid);
+    refetch();
+    setTimeout(() => navigate("/categories", { replace: true }), 0);
+};
 
 const CategoryList: Component = () => {
+    const navigate = useNavigate();
+
     return (
         <div class="flex-grow flex flex-col px-2">
             <Show when={!categoryList.loading} fallback={<Loading />}>
@@ -42,7 +51,10 @@ const CategoryList: Component = () => {
                                     <tr>
                                         <td class="px-6 py-4">{c.name}</td>
                                         <td class="px-6 py-4">{c.description}</td>
-                                        <td class="px-6 py-4 cursor-pointer"><A href={`/categories/${c.uuid}`}>Edit</A></td>
+                                        <td class="px-6 py-4 flex gap-2">
+                                            <A href={`/categories/${c.uuid}`}><Button label="Edit" /></A>
+                                            <Button kind="danger" label="Delete" onClick={() => remove(c.uuid, navigate)} />
+                                        </td>
                                     </tr>
                                 }
                             </For>

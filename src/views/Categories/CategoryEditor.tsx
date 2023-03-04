@@ -9,12 +9,12 @@
 import { useNavigate, useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
-import { addCategory, deleteCategory, getCategory, updateCategory } from "../../api/category";
+import { addCategory, getCategory, updateCategory } from "../../api/category";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import Category from "../../definitions/types/Category";
-import { categoryList, refetchCategoryList } from "./CategoryList";
+import { categoryList, refetch, remove } from "./CategoryList";
 
 const AddCategory: Component = () => {
     const params = useParams();
@@ -51,19 +51,11 @@ const AddCategory: Component = () => {
         }
 
         if (r.status === Status.Success) {
-            refetchCategoryList();
+            refetch();
             navigate("/categories");
         } else {
             setError(r.message);
         }
-    };
-
-    const remove = async () => {
-        if (!window.confirm("Are you sure?")) return;
-
-        deleteCategory(uuid());
-        refetchCategoryList();
-        navigate("/categories", { replace: true });
     };
 
     return (
@@ -99,7 +91,7 @@ const AddCategory: Component = () => {
                         <Button label="Save" onClick={save} />
                         <Button label="Cancel" onClick={() => window.history.back()} />
                         <Show when={uuid() !== ""}>
-                            <Button kind="danger" label="Delete" onClick={remove} />
+                            <Button kind="danger" label="Delete" onClick={() => remove(uuid(), navigate)} />
                         </Show>
                     </div>
                 </div>

@@ -8,7 +8,7 @@
 
 import { type Component } from "solid-js";
 
-const Button: Component<{ label: string, onClick: () => void, kind?: string }> = (props) => {
+const Button: Component<{ label: string, onClick?: () => void, kind?: string }> = (props) => {
     const classList = () => {
         let c = "";
 

@@ -7,17 +7,26 @@
  */
 
 import { type Component, For, createResource, Show } from "solid-js";
-import { A } from "@solidjs/router";
+import { A, useNavigate } from "@solidjs/router";
 import Button from "../../components/Button";
 import ResultList from "../../definitions/types/ResultList";
 import User from "../../definitions/types/User";
 import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
-import { getUserList } from "../../api/user";
+import { deleteUser, getUserList } from "../../api/user";
 
-export const [userList, { refetch: refetchUserList }] = createResource<ResultList<User>>(getUserList);
+export const [userList, { refetch }] = createResource<ResultList<User>>(getUserList);
+export const remove = (uuid: string, navigate: ReturnType<typeof useNavigate>) => {
+    if (!window.confirm("Are you sure?")) return;
+
+    deleteUser(uuid);
+    refetch();
+    setTimeout(() => navigate("/users", { replace: true }), 0);
+};
 
 const UserList: Component = () => {
+    const navigate = useNavigate();
+
     return (
         <div class="flex-grow flex flex-col px-2">
             <Show when={!userList.loading} fallback={<Loading />}>
@@ -46,7 +55,10 @@ const UserList: Component = () => {
                                         <td class="px-6 py-4">{u.lastname}</td>
                                         <td class="px-6 py-4">{u.email}</td>
                                         <td class="px-6 py-4">{u.role}</td>
-                                        <td class="px-6 py-4 cursor-pointer"><A href={`/users/${u.uuid}`}>Edit</A></td>
+                                        <td class="px-6 py-4 flex gap-2">
+                                            <A href={`/users/${u.uuid}`}><Button label="Edit" /></A>
+                                            <Button kind="danger" label="Delete" onClick={() => remove(u.uuid, navigate)} />
+                                        </td>
                                     </tr>
                                 }
                             </For>
