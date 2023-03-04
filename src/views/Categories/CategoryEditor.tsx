@@ -9,12 +9,12 @@
 import { useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
-import { addCategory, getCategory, updateCategory } from "../../api/category";
+import { addCategory, deleteCategory, getCategory, updateCategory } from "../../api/category";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import Category from "../../definitions/types/Category";
-import { categoryList } from "./CategoryList";
+import { categoryList, refetchCategoryList } from "./CategoryList";
 
 const AddCategory: Component = () => {
     const params = useParams();
@@ -50,10 +50,19 @@ const AddCategory: Component = () => {
         }
 
         if (r.status === Status.Success) {
+            refetchCategoryList();
             window.history.back();
         } else {
             setError(r.message);
         }
+    };
+
+    const remove = async () => {
+        if (!window.confirm("Are you sure?")) return;
+
+        deleteCategory(uuid());
+        refetchCategoryList();
+        window.history.back();
     };
 
     return (
@@ -88,6 +97,9 @@ const AddCategory: Component = () => {
                     <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800 gap-2">
                         <Button label="Save" onClick={save} />
                         <Button label="Cancel" onClick={() => window.history.back()} />
+                        <Show when={uuid() !== ""}>
+                            <Button kind="danger" label="Delete" onClick={remove} />
+                        </Show>
                     </div>
                 </div>
             </Show>

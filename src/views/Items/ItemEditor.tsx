@@ -9,12 +9,13 @@
 import { useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
-import { addItem, getItem, updateItem } from "../../api/item";
+import { addItem, deleteItem, getItem, updateItem } from "../../api/item";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import Item from "../../definitions/types/Item";
 import { categoryList } from "../Categories/CategoryList";
+import { refetchItemList } from "./ItemList";
 
 const AddItem: Component = () => {
     const params = useParams();
@@ -53,9 +54,18 @@ const AddItem: Component = () => {
 
         if (r.status === Status.Success) {
             window.history.back();
+            refetchItemList();
         } else {
             setError(r.message);
         }
+    };
+
+    const remove = async () => {
+        if (!window.confirm("Are you sure?")) return;
+
+        deleteItem(uuid());
+        refetchItemList();
+        window.history.back();
     };
 
     return (
@@ -94,6 +104,9 @@ const AddItem: Component = () => {
                     <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800 gap-2">
                         <Button label="Save" onClick={save} />
                         <Button label="Cancel" onClick={() => window.history.back()} />
+                        <Show when={uuid() !== ""}>
+                            <Button kind="danger" label="Delete" onClick={remove} />
+                        </Show>
                     </div>
                 </div>
             </Show>

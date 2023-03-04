@@ -9,11 +9,12 @@
 import { useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
-import { addUser, getUser, updateUser } from "../../api/user";
+import { addUser, deleteUser, getUser, updateUser } from "../../api/user";
 import Button from "../../components/Button";
 import Input from "../../components/Input";
 import Select from "../../components/Select";
 import User from "../../definitions/types/User";
+import { refetchUserList } from "./UserList";
 
 const AddUser: Component = () => {
     const params = useParams();
@@ -51,10 +52,19 @@ const AddUser: Component = () => {
         }
 
         if (r.status === Status.Success) {
+            refetchUserList();
             window.history.back();
         } else {
             setError(r.message);
         }
+    };
+
+    const remove = async () => {
+        if (!window.confirm("Are you sure?")) return;
+
+        deleteUser(uuid());
+        refetchUserList();
+        window.history.back();
     };
 
     return (
@@ -97,6 +107,9 @@ const AddUser: Component = () => {
                     <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800 gap-2">
                         <Button label="Save" onClick={save} />
                         <Button label="Cancel" onClick={() => window.history.back()} />
+                        <Show when={uuid() !== ""}>
+                            <Button kind="danger" label="Delete" onClick={remove} />
+                        </Show>
                     </div>
                 </div>
             </Show>

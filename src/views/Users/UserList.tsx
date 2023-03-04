@@ -15,12 +15,12 @@ import Loading from "../../components/Loading";
 import NoDataAvailable from "../../components/NoDataAvailable";
 import { getUserList } from "../../api/user";
 
-const UserList: Component = () => {
-    const [data] = createResource<ResultList<User>>(getUserList);
+export const [userList, { refetch: refetchUserList }] = createResource<ResultList<User>>(getUserList);
 
+const UserList: Component = () => {
     return (
         <div class="flex-grow flex flex-col px-2">
-            <Show when={!data.loading} fallback={<Loading />}>
+            <Show when={!userList.loading} fallback={<Loading />}>
                 <div class="text-4xl p-4 mb-4 flex items-center gap-4">
                     Users
                     <A href="/users/add"><Button label="Add" onClick={() => { }} /></A>
@@ -38,7 +38,7 @@ const UserList: Component = () => {
                         </thead>
                         <tbody class="divide-y divide-gray-600 bg-slate-800">
                             <For
-                                each={data()?.results}
+                                each={userList()?.results}
                                 fallback={<NoDataAvailable col={5} />}>
                                 {u =>
                                     <tr>

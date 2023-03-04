@@ -15,7 +15,7 @@ import NoDataAvailable from "../../components/NoDataAvailable";
 import ResultList from "../../definitions/types/ResultList";
 import { getCategoryList } from "../../api/category";
 
-export const [categoryList] = createResource<ResultList<Category>>(getCategoryList);
+export const [categoryList, { refetch: refetchCategoryList }] = createResource<ResultList<Category>>(getCategoryList);
 
 const CategoryList: Component = () => {
     return (
