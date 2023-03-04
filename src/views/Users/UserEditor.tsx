@@ -6,7 +6,7 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { useParams } from "@solidjs/router";
+import { useNavigate, useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
 import { addUser, deleteUser, getUser, updateUser } from "../../api/user";
@@ -18,6 +18,7 @@ import { refetchUserList } from "./UserList";
 
 const AddUser: Component = () => {
     const params = useParams();
+    const navigate = useNavigate();
 
     const [role, setRole] = createSignal("user");
     const [firstname, setFirstname] = createSignal("");
@@ -53,7 +54,7 @@ const AddUser: Component = () => {
 
         if (r.status === Status.Success) {
             refetchUserList();
-            window.history.back();
+            navigate("/users");
         } else {
             setError(r.message);
         }
@@ -64,7 +65,7 @@ const AddUser: Component = () => {
 
         deleteUser(uuid());
         refetchUserList();
-        window.history.back();
+        navigate("/users", { replace: true });
     };
 
     return (

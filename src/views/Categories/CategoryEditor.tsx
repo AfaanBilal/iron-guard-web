@@ -6,7 +6,7 @@
  * @link   https://github.com/AfaanBilal/iron-guard-web
  */
 
-import { useParams } from "@solidjs/router";
+import { useNavigate, useParams } from "@solidjs/router";
 import { createEffect, createResource, createSignal, Show, type Component } from "solid-js";
 import { Status } from "../../api/api";
 import { addCategory, deleteCategory, getCategory, updateCategory } from "../../api/category";
@@ -18,6 +18,7 @@ import { categoryList, refetchCategoryList } from "./CategoryList";
 
 const AddCategory: Component = () => {
     const params = useParams();
+    const navigate = useNavigate();
 
     const [name, setName] = createSignal("");
     const [description, setDescription] = createSignal("");
@@ -51,7 +52,7 @@ const AddCategory: Component = () => {
 
         if (r.status === Status.Success) {
             refetchCategoryList();
-            window.history.back();
+            navigate("/categories");
         } else {
             setError(r.message);
         }
@@ -62,7 +63,7 @@ const AddCategory: Component = () => {
 
         deleteCategory(uuid());
         refetchCategoryList();
-        window.history.back();
+        navigate("/categories", { replace: true });
     };
 
     return (
