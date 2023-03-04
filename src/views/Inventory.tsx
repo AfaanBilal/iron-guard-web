@@ -56,20 +56,22 @@ const Inventory: Component = () => {
                         <div class="flex flex-col mt-2">
                             <For each={data()?.items} fallback={NoData()}>
                                 {i =>
-                                    <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
-                                        <div class="text-xl">
-                                            📦
+                                    <A href={`/items/${i.uuid}`}>
+                                        <div class="px-4 py-2 flex justify-between items-center gap-4 border-b border-b-slate-600 cursor-pointer hover:bg-slate-700">
+                                            <div class="text-xl">
+                                                📦
+                                            </div>
+                                            <div class="text-slate-300 text-lg">
+                                                {i.name}
+                                            </div>
+                                            <div class="text-slate-400 flex-grow text-sm">
+                                                {i.description}
+                                            </div>
+                                            <div class="p-2 bg-slate-700 rounded">
+                                                {i.quantity}
+                                            </div>
                                         </div>
-                                        <div class="text-slate-300 text-lg">
-                                            {i.name}
-                                        </div>
-                                        <div class="text-slate-400 flex-grow text-sm">
-                                            {i.description}
-                                        </div>
-                                        <div class="p-2 bg-slate-700 rounded">
-                                            {i.quantity}
-                                        </div>
-                                    </div>
+                                    </A>
                                 }
                             </For>
                         </div>
