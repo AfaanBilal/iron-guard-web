@@ -97,6 +97,7 @@ const AddItem: Component = () => {
                     <div class="flex items-center px-2 py-4 mt-4 border-t border-t-slate-800 gap-2">
                         <Button label="Save" onClick={save} />
                         <Button label="Cancel" onClick={() => window.history.back()} />
+                        <div class="flex-grow"></div>
                         <Show when={uuid() !== ""}>
                             <Button kind="danger" label="Delete" onClick={() => remove(uuid(), navigate)} />
                         </Show>
