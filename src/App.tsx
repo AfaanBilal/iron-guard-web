@@ -22,6 +22,7 @@ const CategoryList = lazy(() => import("./views/Categories/CategoryList"));
 const CategoryEditor = lazy(() => import("./views/Categories/CategoryEditor"));
 const UserList = lazy(() => import("./views/Users/UserList"));
 const UserEditor = lazy(() => import("./views/Users/UserEditor"));
+const Profile = lazy(() => import("./views/Profile/Profile"));
 
 const App: Component = () => {
     const location = useLocation();
@@ -64,6 +65,11 @@ const App: Component = () => {
                                 Users
                             </div>
                         </A>
+                        <A href="/profile">
+                            <div class={`px-4 py-4 border-b border-b-slate-600 ${location.pathname.includes("profile") ? "bg-black" : ""}`}>
+                                Profile
+                            </div>
+                        </A>
                         <div class="absolute bottom-0 text-center pl-4 pb-4">
                             &copy; <a class="text-zinc-400" href="https://afaan.dev" target="_blank">Afaan Bilal</a>
                         </div>
@@ -81,6 +87,7 @@ const App: Component = () => {
                             <Route path="/users" component={UserList} />
                             <Route path="/users/add" component={UserEditor} />
                             <Route path="/users/:uuid" component={UserEditor} />
+                            <Route path="/profile" component={Profile} />
                         </Routes>
                     </div>
                 </div>
