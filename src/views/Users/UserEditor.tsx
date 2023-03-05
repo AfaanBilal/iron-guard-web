@@ -36,6 +36,7 @@ const UserEditor: Component = () => {
             setFirstname(u.firstname);
             setLastname(u.lastname);
             setEmail(u.email);
+            setRole(u.role);
         }
     });
 
@@ -84,7 +85,7 @@ const UserEditor: Component = () => {
                     </div>
                     <div class="flex items-center py-2">
                         <div class="px-2 text-slate-300 text-xl w-64">Password</div>
-                        <div class="px-2"><Input type="password" placeholder="Unchanged" value={password()} onInput={e => setPassword(e.currentTarget.value)} /></div>
+                        <div class="px-2"><Input type="password" placeholder={uuid() === "" ? "" : "Unchanged"} value={password()} onInput={e => setPassword(e.currentTarget.value)} /></div>
                     </div>
                     <div class="flex items-center py-2">
                         <div class="px-2 text-slate-300 text-xl w-64">Role</div>
