@@ -8,7 +8,7 @@
 
 import { setToken, token } from "../App";
 
-export const API_BASE = "http://localhost:8000";
+export const API_BASE = "https://iron-guard.amx.gg";
 
 export enum Status {
     Success = "success",
