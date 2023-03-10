@@ -1,0 +1,1 @@
+import{l,n as r,t as s}from"./index-f282f4e2.js";const o=s('<tr><td class="py-4 text-slate-500 text-center">No data available</td></tr>'),n=e=>(()=>{const t=o.cloneNode(!0),a=t.firstChild;return l(()=>r(a,"colspan",e.col)),t})();export{n as N};
