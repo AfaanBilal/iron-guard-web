@@ -13,6 +13,7 @@ import NoDataAvailable from "../components/NoDataAvailable";
 import Category from "../definitions/types/Category";
 import Item from "../definitions/types/Item";
 import User from "../definitions/types/User";
+import IronGuardIcon from "../assets/icon.png";
 
 interface DashboardData {
     count_items: number;
@@ -33,7 +34,7 @@ const Dashboard: Component = () => {
                 <div class="flex flex-wrap gap-4 p-4">
                     <div class="flex-grow h-48 pb-4 grid grid-cols-2 items-end border bg-slate-700 border-slate-600 rounded-lg">
                         <div class="ml-8">
-                            <img class="w-32 h-32" src={"/src/assets/icon.png"} alt="icon" />
+                            <img class="w-32 h-32" src={IronGuardIcon} alt="icon" />
                         </div>
                         <div class="mr-8 text-right">
                             <div class="mb-2 text-7xl text-gray-400 font-bold">Iron Guard</div>

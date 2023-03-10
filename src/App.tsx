@@ -11,6 +11,7 @@ import { Routes, Route, A, useLocation } from "@solidjs/router";
 import { localStoredSignal } from "./definitions/localStoredSignal";
 import SignIn from "./views/Auth/SignIn";
 import Button from "./components/Button";
+import IronGuardIcon from "./assets/icon.png";
 
 export const [token, setToken] = localStoredSignal("iron-guard-token", "");
 
@@ -33,7 +34,7 @@ const App: Component = () => {
             <Show when={token() !== ""}>
                 <A href="/">
                     <div class="bg-gray-700 p-4 flex">
-                        <img class="w-8 h-8" src={"/src/assets/icon.png"} alt="icon" />
+                        <img class="w-8 h-8" src={IronGuardIcon} alt="icon" />
                         <h1 class="ml-4 text-3xl font-bold flex-grow">Iron Guard</h1>
                         <Button label="Logout" onClick={() => setToken("")} />
                     </div>

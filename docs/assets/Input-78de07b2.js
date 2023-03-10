@@ -1,1 +1,0 @@
-import{s,m as o,t as n}from"./index-f282f4e2.js";const r=n("<input>"),l=t=>(()=>{const e=r.cloneNode(!0);return s(e,o(t,{class:"py-2 px-2 w-64 bg-slate-800 rounded text-lg focus:outline-none"}),!1,!1),e})();export{l as I};
